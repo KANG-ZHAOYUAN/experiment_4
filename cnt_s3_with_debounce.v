@@ -17,10 +17,10 @@ always @(posedge clk or posedge rst) begin
             if (cnt_out[7:4] == 4'h9) begin  // 十位满9，整体清零（00~99循环）
                 cnt_out[7:4] <= 4'h0;
             end else begin
-                cnt_out[7:4] <= cnt_out[7:4] + 1'b1;
+                cnt_out[7:4] <= cnt_out[7:4] + 4'b1;
             end
         end else begin  // 个位未满9，个位加1
-            cnt_out[3:0] <= cnt_out[3:0] + 1'b1;
+            cnt_out[3:0] <= cnt_out[3:0] + 4'b1;
         end
     end else begin
         cnt_out <= cnt_out;  // 无触发，保持计数
